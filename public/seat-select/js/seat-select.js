@@ -22,7 +22,7 @@ const renderSeats = () => {
       const seatAvailable = `<li><label class="seat"><input type="radio" name="seat" value="${seatNumber}" /><span id="${seatNumber}" class="avail">${seatNumber}</span></label></li>`;
 
       // TODO: render the seat availability based on the data...
-      seat.innerHTML = seatAvailable;
+        seat.innerHTML = seatAvailable;
       row.appendChild(seat);
     }
   }
@@ -75,3 +75,4 @@ const handleConfirmSeat = (event) => {
 };
 
 flightInput.addEventListener('blur', toggleFormContent);
+confirmButton.addEventListener('submit', handleConfirmSeat);
