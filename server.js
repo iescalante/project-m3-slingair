@@ -10,22 +10,22 @@ const PORT = process.env.PORT || 8000;
 
 const handleFlight = (req, res) => {
   const { flightNumber } = req.params;
-  // res.json(flights[flightNumber]);
-  // get all flight numbers
-  const allFlights = Object.keys(flights);
-  // is flightNumber in the array?
-  console.log('REAL FLIGHT: ', allFlights.includes(flightNumber));
-  if (allFlights.includes(flightNumber)) {
-    console.log('true');
-    res.json({
-      flight: flights[flightNumber],
-      message: 'This flight exists in our database',
-    })
-  } else { 
-    console.log('false');
-  res.json({
-    message: 'This flight does not exist in our database',
-  }) }
+  res.json(flights[flightNumber]);
+  // // get all flight numbers
+  // const allFlights = Object.keys(flights);
+  // // is flightNumber in the array?
+  // console.log('REAL FLIGHT: ', allFlights.includes(flightNumber));
+  // if (allFlights.includes(flightNumber)) {
+  //   console.log('true');
+  //   res.json({
+  //     flight: flights[flightNumber],
+  //     message: 'This flight exists in our database',
+  //   })
+  // } else { 
+  //   console.log('false');
+  // res.json({
+  //   message: 'This flight does not exist in our database',
+  // }) }
 };
 
 express()
