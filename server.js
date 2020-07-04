@@ -10,7 +10,14 @@ const PORT = process.env.PORT || 8000;
 
 const handleFlight = (req, res) => {
   const { flightNumber } = req.params;
-  res.json(flights[flightNumber]);
+  if (flights[flightNumber]) {
+    res.json(flights[flightNumber]);
+  } else {
+    res.json({
+      message: 'not in database',
+    })
+  }
+  
   // // get all flight numbers
   // const allFlights = Object.keys(flights);
   // // is flightNumber in the array?
@@ -27,6 +34,7 @@ const handleFlight = (req, res) => {
   //   message: 'This flight does not exist in our database',
   // }) }
 };
+
 
 express()
   .use(function (req, res, next) {
@@ -52,16 +60,15 @@ express()
   .get('/flights/:flightNumber', handleFlight)
   .get('/users', (req,res) => {
     console.log(users);
-    res.json({
-      users: users,
-    })
+    res.json(users);
   })
   .post('/users', (req,res) => {
     const newUser = req.body;
     users.push(newUser);
-    res.json({
-      user: newUser,
-    });
+    res.json(newUser);
+  })
+  .get('/seat-select/confirmed/:id', (req,res) => {
+    res.sendFile('/confirmed.html')
   })
   .use((req, res) => res.send('Not Found'))
   .listen(PORT, () => console.log(`Listening on port ${PORT}`));

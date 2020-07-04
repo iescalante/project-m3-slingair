@@ -84,7 +84,16 @@ const toggleFormContent = (event) => {
         // data.flight.forEach( seat => {
         //     console.log(seat);
         // });
-        renderSeats(data);
+        if ( data.message === 'not in database') {
+        let flightError = document.getElementById('flight-error');
+        flightError.innerText = "Sorry, we couldn't find this flight # in our database";
+        setTimeout(() => {
+              window.location.reload();
+            }, 1500)
+        } else {
+          renderSeats(data);
+        }
+        
       }
     )}
   // TODO: contact the server to get the seating availability
