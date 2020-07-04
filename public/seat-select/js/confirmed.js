@@ -2,6 +2,7 @@
     const seatNum = document.getElementById('seat');
     const fullname = document.getElementById('name');
     const givenEmail = document.getElementById('email');
+    const btnReservation = document.getElementById('view-reservation');
 
 const renderConfirmation = () => {
     fetch('/users', 
@@ -26,3 +27,7 @@ const renderConfirmation = () => {
 }
 
 renderConfirmation();
+btnReservation.addEventListener('click', (event) => {
+    event.preventDefault();
+    window.location.href ='/seat-select/view-reservation.html';
+});
