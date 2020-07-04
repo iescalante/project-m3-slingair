@@ -13,7 +13,8 @@
             </div>
             <div class="flight-select">
                 <label for="flight">Flight Number :</label>
-                <input name="flight" id="flight" class="flight" type="text" placeholder="flight #" />
+                <input name="flight" id="flight" class="flight" type="text" placeholder="SA###" />
+                <p id='flight-error' style='display:inline-block; font-size: 24px; margin: 0 auto;'></p>
             </div>
             <div class="form-container">
                 <h2>Select your seat and Provide your information!</h2>
@@ -36,7 +37,7 @@
                         </div>
                         <button class='button confirm' id='confirm-button'>
                             <div class="lds-dual-ring"></div>
-                            Confirm<span id="seat-number"></span>
+                            Confirm<span id="seat-number" type='text'></span>
                         </button>
                     </div>
                 </form>
