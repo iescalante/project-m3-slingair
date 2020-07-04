@@ -17,7 +17,7 @@ fetch('/users',
 )
 .then(res => res.json())
 .then(data => {
-    console.log(data);
+    // console.log(data);
     flightNum.innerText =`${data[0].flight}`;
     seatNum.innerText = `${data[0].seat}`;
     fullname.innerText = `${data[0].givenName} ${data[0].surname}`;

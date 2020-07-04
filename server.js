@@ -68,7 +68,9 @@ express()
     res.json(newUser);
   })
   .get('/seat-select/confirmed/:id', (req,res) => {
-    res.sendFile('/confirmed.html')
+    // res.sendFile('/confirmed.html')
+    const id = req.query;
+    console.log(req.query);
   })
   .use((req, res) => res.send('Not Found'))
   .listen(PORT, () => console.log(`Listening on port ${PORT}`));

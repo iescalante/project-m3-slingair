@@ -110,6 +110,7 @@ const handleConfirmSeat = (event) => {
   fetch('/users', {
     method: 'POST',
     body: JSON.stringify({
+      id: Math.random(),
       flight: `SA${flightInput.value}`,
       seat: selection,
       givenName: document.getElementById('givenName').value,
